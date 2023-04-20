@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Bank_Application.Models.account>
+
+<body style="background-color:lightblue">
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <br />
+
+    @using (Html.BeginForm(FormMethod.Get))
+    {
+        @Html.TextBox("Searching")
+        <input type="submit" value="search" />
+
+    }
+
+    <br />
+
+    <br />
+
+    @*class="table table-striped"*@
+    <table class="table table-striped">
+        <thead>
+            <tr>
+
+                <th>account_number</th>
+                <th>amount</th>
+            </tr>
+            </header>
+
+        <tbody>
+            @if (Model.Count() == 0)
+            {
+                <tr>
+                    <td colspan="3" style="color:red">
+                        No Match Any Document
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.account_number</td>
+                        <td>@item.amount</td>
+                       
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+
+    @*<h2>Index</h2>
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.account_number)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Openingaccount.account_number)
+                </th>
+                <th></th>
+            </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.account_number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Openingaccount.account_number)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.accountID }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.accountID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.accountID })
+                </td>
+            </tr>
+        }
+
+        </table>*@
+
+</body>

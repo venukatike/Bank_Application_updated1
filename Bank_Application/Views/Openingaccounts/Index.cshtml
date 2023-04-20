@@ -1,0 +1,159 @@
+﻿@model IEnumerable<Bank_Application.Models.Openingaccount>
+
+<body style="background-color:lightblue">
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Index</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.TextBox("Searching")
+        <input type="submit" value="search" />
+
+    }
+
+    <br />
+
+    <br />
+
+    @*class="table table-striped"*@
+    <table class="table table-striped">
+        <thead>
+            <tr>
+
+                <th>account_number</th>
+                <th>Password</th>
+                <th>FullName</th>
+                <th>FatherName</th>
+                <th>Adhar_Number</th>
+                <th>EmailID</th>
+                <th>DOB</th>
+                <th>Age</th>
+                <th>Account_Type</th>
+                <th>PhoneNumber</th>
+
+
+            </tr>
+            </header>
+
+        <tbody>
+            @if (Model.Count() == 0)
+            {
+                <tr>
+                    <td colspan="3" style="color:red">
+                        No Match Any Document
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.account_number</td>
+                        <td>@item.Password</td>
+                        <td>@item.Fullname</td>
+                        <td>@item.Fathername</td>
+                        <td>@item.Adharno</td>
+                        <td>@item.Email</td>
+                        <td>@item.DOB</td>
+                        <td>@item.Age</td>
+                        <td>@item.accounttype</td>
+                        <td>@item.Phoneno</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.account_number)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fullname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fathername)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Adharno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DOB)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Age)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.accounttype)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phoneno)
+                </th>
+                <th></th>
+            </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.account_number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fullname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fathername)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adharno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DOB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.accounttype)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phoneno)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CustomerID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CustomerID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CustomerID })
+                </td>
+            </tr>
+        }
+
+        </table>*@
+
+</body>

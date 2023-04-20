@@ -1,0 +1,73 @@
+﻿@model Bank_Application.Models.account
+
+<body style="background-color:lightblue">
+
+    @{
+        ViewBag.Title = "FundTransfer";
+    }
+
+
+    <br />
+    <br />
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+
+
+
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>account</h4>
+    <hr />
+
+    @*<div class="form-group">
+           <div class="col-md-offset-2 col-md-10">
+               <label style="color:green">@ViewBag.Message</label>
+           </div>
+        </div>*@
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="form-group">
+    <div class="col-md-10">
+        <label>
+            From
+        </label>
+        @Html.EditorFor(model => model.account_number, new { htmlAttributes = new { @class = "form-control" , PlaceHolder = "Account Number" } })
+        @Html.ValidationMessageFor(model => model.account_number, "", new { @class = "text-danger" })
+    </div>
+</div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <label>To</label>
+            @Html.EditorFor(model => model.Toaccount_number, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Account Number" } })
+            @Html.ValidationMessageFor(model => model.Toaccount_number, "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <label>Amount</label>
+            @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Amount" } })
+            @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+
+            <input type="submit" value="Transfer" name="btn" class="btn btn-default" /><br /><br />
+
+        </div>
+    </div>
+
+
+</div>
+
+    }
+
+</body>

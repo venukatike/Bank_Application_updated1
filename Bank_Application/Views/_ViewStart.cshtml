@@ -1,0 +1,19 @@
+﻿
+@*@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+
+
+@*@{
+        Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+    }*@
+
+@{ if (User.Identity.Name == "Admin@gmail.com")
+                {
+                    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+                }
+                else
+                {
+                    Layout = "~/Views/Shared/_Layout.cshtml";
+                } 
+   }

@@ -1,0 +1,224 @@
+﻿@model Bank_Application.Models.Openingaccount
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<body style="background-color:lightblue">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="form-horizontal">
+            <h4>Openingaccount</h4>
+            <hr />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <label style="color:green">@ViewBag.Message</label>
+                </div>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.account_number, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.account_number, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.account_number)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Fullname, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Fullname, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Fullname, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Fathername, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Fathername, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Fathername, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Adharno, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Adharno, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Adharno, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.accounttype, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                        @Html.DropDownList("AccountType", new SelectList(new List<string>
+                   {
+                       "Savings",
+                       "Current",
+                   }), new { @class = "form-control" })
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Phoneno, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Phoneno, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Phoneno, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Register" id="idbtn" class="btn btn-default" />
+                    </div>
+                    @*<div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <label>@ViewBag.Message</label>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+
+    }
+
+</body>
+
+    @*<div>
+           @Html.ActionLink("Back to List", "Edit")
+        </div>*@
+
+    @section Scripts {
+
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Styles.Render("~/Content/cssjqryUi")
+
+
+
+
+
+        @*<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+            <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+            <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>*@
+        @*<script>
+                /*  $(document).ready(function () {
+                    $('input[type=datetime]').datepicker({
+                        dateFormat: "d/m/yyyy",
+                         changeMonth: true,
+                        changeYear: true,
+
+                        yearRange: "-60:+0",
+                         beforeShowDay: function (date) {
+                             // Define the color for the date
+                             var color = "red";
+                            r
+
+
+                             return [true, "date-" + color];
+                         }
+                     });
+
+                 });
+
+               $(document).ready(function () {
+                    $('.datepicker').datepicker({
+
+                        dateFormat: "dd-mm-yy",
+                        changeMonth: true,
+                        changeYear: true,
+                        yearRange: "-100:+0"
+
+
+
+                    });
+                });
+            </script>*@
+
+        @*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"> </script>*@
+
+        @*<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+            <script >
+                $(document).ready(function () {
+                    $('#idbtn').click(function () {
+                        $(this).attr('disabled', true);
+                        $(this).css("curser", "not allowed");
+                    })
+                })
+
+                </script>*@
+
+        @*<script>
+                function disableRegisterButton() {
+                    document.getElementById("idbtn").disabled = true;
+                    alert("Registration successful!");
+                }
+            </script>
+
+            <script>
+
+                function validationForm() {
+                    if (validationPasses) {
+                        disableRegisterButton();
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+
+                    }
+
+            </script>*@
+
+
+
+    }
+
+
+
